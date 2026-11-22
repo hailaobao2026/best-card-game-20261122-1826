@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember Duel — a card battler</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <!-- Title screen -->
+  <section id="screen-title" class="screen">
+    <div class="title-ember" aria-hidden="true">✦</div>
+    <h1 class="game-title">EMBER DUEL</h1>
+    <p class="tagline">A duel of cinders and nerve. Outplay the Cinder Fox, card by card.</p>
+    <button id="btn-duel" class="big-btn" type="button">⚔ &nbsp;DUEL</button>
+    <div class="howto">
+      <h2>How to play</h2>
+      <ul>
+        <li><b>Ember</b> is your mana. Each turn you gain +1 max ember and refill it.</li>
+        <li>Click a card (or press <b>1–7</b>) to play it. Attack breaks <b>block</b> first, then health.</li>
+        <li>Draw 2 cards every turn. Empty deck? Your discard pile is shuffled back in.</li>
+        <li>Reduce the Cinder Fox to <b>0 health</b> to win. Lose all your health and the duel is lost.</li>
+        <li><b>Space</b> ends your turn · <b>R</b> restarts · <b>M</b> toggles sound</li>
+      </ul>
+    </div>
+    <p id="title-record" class="record">No duels fought yet — the table is waiting.</p>
+  </section>
+
+  <!-- Battle table -->
+  <section id="screen-battle" class="screen hidden">
+    <div id="table">
+      <!-- Opponent row -->
+      <div class="side side-foe">
+        <div class="portrait foe-portrait" aria-hidden="true">🦊</div>
+        <div class="fighter-info">
+          <div class="fighter-name">CINDER FOX <span class="fighter-tag">RIVAL</span></div>
+          <div class="hp-row">
+            <div class="hp-bar"><div id="foe-hp-fill" class="hp-fill"></div><span id="foe-hp-text" class="hp-text"></span></div>
+            <div id="foe-block" class="block-badge hidden">🛡 <span id="foe-block-num">0</span></div>
+          </div>
+          <div class="ember-row" id="foe-ember" aria-label="Foe ember"></div>
+        </div>
+        <div id="foe-hand" class="mini-hand" aria-label="Foe hand"></div>
+      </div>
+
+      <!-- Center: played cards + log -->
+      <div id="center">
+        <div id="played-zone">
+          <div id="played-foe" class="played-slot"></div>
+          <div id="vs-mark">VS</div>
+          <div id="played-you" class="played-slot"></div>
+        </div>
+        <div id="turn-banner" class="turn-banner hidden"></div>
+        <ol id="combat-log" aria-live="polite"></ol>
+      </div>
+
+      <!-- Player row -->
+      <div class="side side-you">
+        <div class="portrait you-portrait" aria-hidden="true">🔥</div>
+        <div class="fighter-info">
+          <div class="fighter-name">YOU <span class="fighter-tag you-tag">EMBERKEEPER</span></div>
+          <div class="hp-row">
+            <div class="hp-bar"><div id="you-hp-fill" class="hp-fill"></div><span id="you-hp-text" class="hp-text"></span></div>
+            <div id="you-block" class="block-badge hidden">🛡 <span id="you-block-num">0</span></div>
+          </div>
+          <div class="ember-row" id="you-ember" aria-label="Your ember"></div>
+        </div>
+        <div class="deck-piles">
+          <div class="pile"><span id="deck-count" class="pile-num">30</span><span class="pile-label">DECK</span></div>
+          <div class="pile discard"><span id="discard-count" class="pile-num">0</span><span class="pile-label">DISCARD</span></div>
+        </div>
+      </div>
+
+      <!-- Player hand -->
+      <div id="hand-row">
+        <div id="hand" class="hand"></div>
+        <div id="controls">
+          <button id="btn-end-turn" class="end-btn" type="button">END TURN ⏎</button>
+          <button id="btn-restart" class="small-btn" type="button" title="Restart duel (R)">↺ Restart</button>
+          <button id="btn-sound" class="small-btn" type="button" title="Toggle sound (M)">♪ Sound: on</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- End screen overlay -->
+  <section id="screen-end" class="screen hidden">
+    <div class="end-card">
+      <h1 id="end-title">VICTORY!</h1>
+      <p id="end-sub" class="end-sub"></p>
+      <div id="end-stats" class="end-stats"></div>
+      <div class="end-buttons">
+        <button id="btn-again" class="big-btn" type="button">Duel again</button>
+        <button id="btn-title" class="ghost-btn" type="button">Title screen</button>
+      </div>
+      <p id="end-record" class="record"></p>
+    </div>
+  </section>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
