@@ -1,6 +1,8 @@
 # Ember Duel — a card battler for make.fun
 
 [![make.fun](https://make.fun/badge/best-card-game-20261122-1826.svg)](https://make.fun/c/best-card-game-20261122-1826)
+[![rank](https://make.fun/badge/best-card-game-20261122-1826/hailaobao2026/best-card-game-20261122-1826/rank.svg)](https://make.fun/c/best-card-game-20261122-1826)
+[![reward](https://make.fun/badge/best-card-game-20261122-1826/hailaobao2026/best-card-game-20261122-1826/reward.svg)](https://make.fun/c/best-card-game-20261122-1826)
 
 An original turn-based card battler, built fresh for the
 [best-card-game-20261122-1826](https://make.fun/c/best-card-game-20261122-1826)
